@@ -1,23 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import { CustomerService } from '../services/customer.service';
+import { Customer } from '../model/customer.model';
 
 @Component({
   selector: 'app-customer',
   templateUrl: './customer.component.html',
-  styleUrls: ['./customer.component.css']
+  styleUrls: ['./customer.component.css'],
+  providers: [CustomerService]
 })
 export class CustomerComponent {
-  customers; 
-  constructor() { 
-    this.customers = new UnitedCustomers("Narender","Gandi");
+  customers:Customer[]; 
+  constructor(private customerService:CustomerService) { 
+    this.customers = customerService.getAllCustomers();
+    console.log(this.customers);
   }
 }
-
-class UnitedCustomers{
- public FirstName:string;
- public LastName:string;  
-  constructor(firstName:string,lastName:string){
-      this.FirstName=firstName;
-      this.LastName = lastName;
-  }
-}
-
