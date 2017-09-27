@@ -14,10 +14,10 @@ export class CustomerComponent {
   users: Users[];
   constructor(private customerService:CustomerService) { 
     this.customers = customerService.getAllCustomers();
-    // customerService.getAllUsers()
-    // .subscribe(
-    //   data => this.users = data
-    // )
-    // console.log(this.users);
+    customerService.getAllUsers()
+    .subscribe(
+      data => this.users = data
+    )
+    console.log(this.users);
   }
 }

@@ -17,11 +17,29 @@ export class CustomerService{
             this.customers.push(new Customer("Narender","Narender"));
             return this.customers;
     }
+    // getAllUsers():Observable<Users[]>{
+    //     return this.http.get("https://jsonplaceholder.typicode.com/users")
+    //     .map((res:Response)=>res.json)
+    //     .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+    // }    
     getAllUsers():Observable<Users[]>{
         return this.http.get("https://jsonplaceholder.typicode.com/users")
-        .map((res:Response)=>res.json)
-        .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
-    }    
+        .map(res=>{
+            return res.json().results.map(
+                    item=>{
+                        return new Users(
+                            item.Id,
+                            item.name,
+                            item.userName,
+                            item.email,
+                            item.phone,
+                            item.website
+                        )
+                    }
+            );
+        })
+        .catch((error:any) => Observable.throw(error || 'Server error'));
+    }   
 
 }
 
