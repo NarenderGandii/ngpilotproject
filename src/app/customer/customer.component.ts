@@ -11,13 +11,20 @@ import {  Users } from '../model/users.model';
 })
 export class CustomerComponent {
   customers:Customer[]; 
-  users: Users[];
+  users: Array<Users>;
   constructor(private customerService:CustomerService) { 
     this.customers = customerService.getAllCustomers();
-    customerService.getAllUsers()
-    .subscribe(
-      data => this.users = data
-    )
+    this.getAllUserData();
     console.log(this.users);
   }
+
+
+  getAllUserData():void{
+    this.customerService.getAllUsers()
+    .subscribe((data)=>{
+      this.users = data;
+      console.log(this.users);
+    })
+  }
+
 }

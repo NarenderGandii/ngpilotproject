@@ -14,7 +14,7 @@ export class CustomerService{
     users:Users[]=[];
     getAllCustomers(): Customer[]{
             this.customers.push(new Customer("John","Smith"));
-            this.customers.push(new Customer("Narender","Narender"));
+            this.customers.push(new Customer("Narender","Gandi"));
             return this.customers;
     }
     // getAllUsers():Observable<Users[]>{
@@ -23,20 +23,9 @@ export class CustomerService{
     //     .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
     // }    
     getAllUsers():Observable<Users[]>{
-        return this.http.get("https://jsonplaceholder.typicode.com/users")
-        .map(res=>{
-            return res.json().results.map(
-                    item=>{
-                        return new Users(
-                            item.Id,
-                            item.name,
-                            item.userName,
-                            item.email,
-                            item.phone,
-                            item.website
-                        )
-                    }
-            );
+        return this.http.get("http://localhost/webapi46/api/user")
+        .map((res:Response)=>{
+            return res.json()  
         })
         .catch((error:any) => Observable.throw(error || 'Server error'));
     }   
