@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CustomerService } from '../services/customer.service';
 import { Customer } from '../model/customer.model';
 import {  Users } from '../model/users.model';
+import {Observable} from 'rxjs/Rx';
 
 @Component({
   selector: 'app-customer',
@@ -9,22 +10,24 @@ import {  Users } from '../model/users.model';
   styleUrls: ['./customer.component.css'],
   providers: [CustomerService]
 })
-export class CustomerComponent {
+export class CustomerComponent  {
   customers:Customer[]; 
-  users: Array<Users>;
+  private users:Array<Users>=[];
   constructor(private customerService:CustomerService) { 
     this.customers = customerService.getAllCustomers();
     this.getAllUserData();
-    console.log(this.users);
+       console.log(this.users);
   }
 
-
-  getAllUserData():void{
+  getAllUserData(){
     this.customerService.getAllUsers()
-    .subscribe((data)=>{
-      this.users = data;
-      console.log(this.users);
-    })
+    .subscribe(
+      results => {
+        results.forEach(element => {
+          this.users.push(element);
+      });
+      }
+    )
   }
 
 }

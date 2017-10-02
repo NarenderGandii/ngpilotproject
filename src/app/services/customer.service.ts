@@ -11,7 +11,7 @@ export class CustomerService{
 
     }
     customers:Customer[]=[];
-    users:Users[]=[];
+    users:Users[];
     getAllCustomers(): Customer[]{
             this.customers.push(new Customer("John","Smith"));
             this.customers.push(new Customer("Narender","Gandi"));

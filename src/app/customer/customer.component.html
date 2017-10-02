@@ -3,5 +3,10 @@
   {{cust.LastName}}
 </div>
 <div *ngFor="let usr of users">
-  {{usr.id}}
+  <div class="col-sm-12">
+  <div class="col-sm-2">{{usr?.Id}}</div>
+  <div class="col-sm-4">{{usr?.Name}}</div>
+  <div class="col-sm-4">{{usr?.Phone}}</div>
+  <div class="col-sm-2">{{usr?.Website}}</div>
+</div>
 </div>
