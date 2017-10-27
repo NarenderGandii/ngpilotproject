@@ -9,8 +9,7 @@ import {Observable} from 'rxjs/Rx';
 @Component({
   selector: 'app-customer',
   templateUrl: './customer.component.html',
-  styleUrls: ['./customer.component.css'],
-  providers: [CustomerService]
+  styleUrls: ['./customer.component.css']
 })
 
 export class CustomerComponent  {
@@ -25,11 +24,9 @@ export class CustomerComponent  {
   getAllUserData(){
     this.customerService.getAllUsers()
     .subscribe(
-      results => {
-        results.forEach(element => {
-          this.users.push(element);
-      });
-      }
+       data => {
+          this.users= data;
+       }
     )
   }
 }
