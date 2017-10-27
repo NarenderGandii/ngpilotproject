@@ -10,7 +10,7 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
-
+import { CustomerService } from './services/customer.service';
 
 const appRoutes: Routes = [
   { path: 'customer', component: CustomerComponent },
@@ -38,7 +38,7 @@ const appRoutes: Routes = [
       { enableTracing: false }
     )
   ],
-  providers: [],
+  providers: [CustomerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
