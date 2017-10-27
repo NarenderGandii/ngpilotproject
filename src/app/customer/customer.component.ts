@@ -24,9 +24,9 @@ export class CustomerComponent  {
   getAllUserData(){
     this.customerService.getAllUsers()
     .subscribe(
-      data => {
+       data => {
           this.users= data;
-      }
+       }
     )
   }
 }
