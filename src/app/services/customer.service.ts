@@ -27,6 +27,9 @@ export class CustomerService{
                     return new Users(item.Id,item.Name,item.UserName,item.Email,item.Phone,item.Website); //We convert the raw data returned from the API into an instance of User
                 }
             );
+
+        })
+    }
  
 }
 
