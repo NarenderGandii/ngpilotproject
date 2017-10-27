@@ -25,10 +25,8 @@ export class CustomerComponent  {
   getAllUserData(){
     this.customerService.getAllUsers()
     .subscribe(
-      results => {
-        results.forEach(element => {
-          this.users.push(element);
-      });
+      data => {
+          this.users= data;
       }
     )
   }
