@@ -4,10 +4,17 @@
 </div>
 <div *ngFor="let usr of users">
   <div class="col-sm-12">
-  <div class="col-sm-2">{{usr?.Id}}</div>
-  <div class="col-sm-4">{{usr?.Name}}</div>
-  <div class="col-sm-4">{{usr?.Phone}}</div>
-  <div class="col-sm-2">{{usr?.Website}}</div>
+    <div class="col-sm-2">{{usr?.Id}}</div>
+    <div class="col-sm-4">{{usr?.Name}}</div>
+    <div class="col-sm-4">{{usr?.Phone}}</div>
+    <div class="col-sm-2">{{usr?.Website}}</div>
+  </div>
+  <div>
+    <select>
+      <option *ngFor="let usr of users" value={{usr.Id}}>
+        {{usr.Name}}
+      </option>
+    </select>
+  </div>
 </div>
- </div>
  
