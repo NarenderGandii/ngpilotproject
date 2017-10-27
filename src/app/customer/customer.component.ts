@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { CustomerService } from '../services/customer.service';
 import { Customer } from '../model/customer.model';
 import {  Users } from '../model/users.model';
+
 import {Observable} from 'rxjs/Rx';
+
 
 @Component({
   selector: 'app-customer',
@@ -10,6 +12,7 @@ import {Observable} from 'rxjs/Rx';
   styleUrls: ['./customer.component.css'],
   providers: [CustomerService]
 })
+
 export class CustomerComponent  {
   customers:Customer[]; 
   private users:Array<Users>=[];
@@ -29,5 +32,4 @@ export class CustomerComponent  {
       }
     )
   }
-
 }
