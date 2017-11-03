@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { CustomerComponent } from './customer/customer.component';
@@ -11,6 +11,8 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { CustomerService } from './services/customer.service';
+
+
 
 const appRoutes: Routes = [
   { path: 'customer', component: CustomerComponent },
@@ -36,7 +38,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: false }
-    )
+    ),
+    NgbModule.forRoot()
   ],
   providers: [CustomerService],
   bootstrap: [AppComponent]

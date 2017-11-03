@@ -12,7 +12,7 @@ export class CustomerService{
 
     }
     customers:Customer[]=[];
-
+    
  
     getAllCustomers(): Customer[]{
             this.customers.push(new Customer("John","Smith"));
@@ -30,6 +30,6 @@ export class CustomerService{
 
         })
     }
- 
+
 }
 
