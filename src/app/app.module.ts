@@ -11,7 +11,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { CustomerService } from './services/customer.service';
-
+import { BackgroundGreenDirective } from './directives/background-green.directive';
 
 
 const appRoutes: Routes = [
@@ -29,7 +29,8 @@ const appRoutes: Routes = [
     AboutusComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    BackgroundGreenDirective
   ],
   imports: [
     BrowserModule,
