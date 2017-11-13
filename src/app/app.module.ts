@@ -12,11 +12,14 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { CustomerService } from './services/customer.service';
 import { BackgroundGreenDirective } from './directives/background-green.directive';
-
+import { FirstComponent } from './unitinquiry/first/first.component';
+import { SecondComponent } from './unitinquiry/Second/Second.component';
+import { ThirdComponent } from './unitinquiry/Third/Third.component';
+import { MainComponent } from './unitinquiry/Main/main.component';
 
 const appRoutes: Routes = [
   { path: 'customer', component: CustomerComponent },
-  { path: 'aboutus',      component: AboutusComponent },
+  { path: 'main',      component: MainComponent },
   { path: 'home',      component: HomeComponent },
   { path: '', component: HomeComponent }
 ];
@@ -30,7 +33,11 @@ const appRoutes: Routes = [
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    BackgroundGreenDirective
+    BackgroundGreenDirective,
+    FirstComponent,
+    SecondComponent,
+    ThirdComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,14 @@
+<br/>
+<div class="container-fluid"> <!-- If Needed Left and Right Padding in 'md' and 'lg' screen means use container class -->
+  <div class="row">
+      <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+          <app-first [titleMessage]="titleMessage" (sendMyNameEventEmitter)="sendMyNameFromParent($event)"></app-first>
+      </div>
+      <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+          <app-second [firstCompValue]="firstCompValue" (secondValueEmitter)="sendMySecondValue($event)"></app-second>
+      </div>
+      <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+          <app-third [result]="result" ></app-third>
+      </div>
+  </div>
+</div>
