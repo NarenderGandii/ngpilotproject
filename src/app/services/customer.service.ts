@@ -31,5 +31,12 @@ export class CustomerService{
         })
     }
 
+    getCurrentDate():Observable<string>{
+        return this.http.get("https://localhost/WebAPI/api/unitinquiry")
+        .map((res:Response)=>{
+            return res.text();
+        })
+    }
+
 }
 

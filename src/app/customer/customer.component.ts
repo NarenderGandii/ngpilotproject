@@ -17,13 +17,23 @@ export class CustomerComponent  {
   closeResult: string;
   documentcontent:string='';
   hasDocument=false;
+  private curDate:string;
+
   private users:Array<Users>=[];
   constructor(private customerService:CustomerService,private modalService: NgbModal) { 
-    console.log(modalService);
     this.customers = customerService.getAllCustomers();
-   // this.getAllUserData();
-       console.log(this.users);
+    this.getCurrentDateData();
+    
   }
+
+getCurrentDateData(){
+  this.customerService.getCurrentDate().subscribe(
+    data=>{
+      this.curDate=data;
+      console.log(this.curDate);
+    }
+  )
+}
 
   getAllUserData(){
     this.customerService.getAllUsers()
