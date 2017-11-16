@@ -14,3 +14,12 @@ export class Users{
         this.Website=website;
     }
 }
+export class Employee{
+    public FirstName:string;
+    public EmployeeId:string;
+  
+    constructor(firstName:string,employeeId:string){
+        this.FirstName=firstName;
+        this.EmployeeId=employeeId;
+    }
+  }

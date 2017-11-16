@@ -4,6 +4,7 @@ import {  Users } from '../model/users.model';
 import {Observable} from 'rxjs/Rx';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { Employee } from "../model/users.model";
 
 @Injectable()
 export class CustomerService{
@@ -36,6 +37,12 @@ export class CustomerService{
         .map((res:Response)=>{
             return res.text();
         })
+    }
+
+    addEmployees(emp:string):Observable<Response>{
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+      return  this.http.post("https://localhost/webapi46/api/unitinquiry",emp,options);
     }
 
 }
