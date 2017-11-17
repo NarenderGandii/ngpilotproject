@@ -10,8 +10,7 @@ import { CustomerService } from "../../services/customer.service";
 })
 export class FirstComponent implements OnInit {
 @Input() titleMessage:string;
-@Output()
-sendMyNameEventEmitter: EventEmitter<string>= new EventEmitter<string>();
+@Output() sendMyNameEventEmitter: EventEmitter<string>= new EventEmitter<string>();
 private employeeObject:Employee;
  private addresult:any;
 
