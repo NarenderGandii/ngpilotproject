@@ -16,6 +16,7 @@ import { FirstComponent } from './unitinquiry/first/first.component';
 import { SecondComponent } from './unitinquiry/Second/Second.component';
 import { ThirdComponent } from './unitinquiry/Third/Third.component';
 import { MainComponent } from './unitinquiry/Main/main.component';
+import { TablegridComponent } from './unitinquiry/tablegrid/tablegrid.component';
 
 const appRoutes: Routes = [
   { path: 'customer', component: CustomerComponent },
@@ -37,7 +38,8 @@ const appRoutes: Routes = [
     FirstComponent,
     SecondComponent,
     ThirdComponent,
-    MainComponent
+    MainComponent,
+    TablegridComponent
   ],
   imports: [
     BrowserModule,

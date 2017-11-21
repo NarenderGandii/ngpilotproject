@@ -1,0 +1,15 @@
+<br/>
+<div class="container-fluid">
+ 
+ <div class="row">
+   <table>
+     <tr *ngFor="let usr of usrs">
+       <td>{{usr.Id}}</td>   
+       <td>{{usr.Name}}</td>   
+       <td>{{usr.Phone}}</td>   
+       <td><input  type="radio" id="rdoUser" name="rdoUser" (change)="selectedUser(usr)"  /> </td>
+     </tr>
+   </table>
+    
+ </div>
+</div>
