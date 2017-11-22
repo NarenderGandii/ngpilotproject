@@ -18,18 +18,18 @@ private users: Array<Users>=[];
   ngOnInit() {
   }
   searchData(){
-    if(isNaN(+this.searchCriteria)){
-      this.custService.getSearchData(this.searchCriteria,undefined).subscribe(
-        data=>{
-          this.users=data;
-        }
-      );      
-    }else{
-      this.custService.getSearchData(undefined, this.searchCriteria).subscribe(
-        data=>{
-          this.users=data;
-        }
-      );      
-    }
+    // if(isNaN(+this.searchCriteria)){
+    //   this.custService.getSearchData(this.searchCriteria,undefined).subscribe(
+    //     data=>{
+    //       this.users=data;
+    //     }
+    //   );      
+    // }else{
+    //   this.custService.getSearchData(undefined, this.searchCriteria).subscribe(
+    //     data=>{
+    //       this.users=data;
+    //     }
+    //   );      
+    // }
   }
 }
