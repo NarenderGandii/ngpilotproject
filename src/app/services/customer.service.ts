@@ -45,5 +45,29 @@ export class CustomerService{
       return  this.http.post("https://localhost/webapi46/api/unitinquiry",emp,options);
     }
 
+    getSearchData(name:string,id:string):Observable<Array<Users>>{
+        //Replace name and id with api parameters
+        let extendedURL="";
+        if(name != undefined || name != '')
+        {
+            extendedURL = "?name=" + name ;            
+        }
+        if(id !=  undefined || id != '' ){
+            if(name != undefined || name != ''){
+                extendedURL = "&id=" + id ;   
+            }else{
+                extendedURL = "?id=" + id ;   
+            }
+        }
+        
+        let baseUrl="http:localhost/" + extendedURL;
+        return this.http.get(baseUrl)
+        .map((res:Response)=>{
+            return res.json().map(item=>{
+                return new Users(item.Id,item.Name,item.UserName,item.Email,item.Phone,item.Website); //We convert the raw data returned from the API into an instance of User
+            })
+        })
+    }
+
 }
 
