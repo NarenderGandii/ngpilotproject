@@ -8,9 +8,28 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class Vertical1Component implements OnInit {
 
+private employee=[
+  {
+"FirstName":"Narender",
+"LastName":"Gandi",
+"EmployeeId":"987",
+"SSN":"124"
+},
+{
+  "FirstName":"John",
+  "LastName":"Smith",
+  "EmployeeId":"435",
+  "SSN":"454"
+  }
+]
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  deleteUser(index){
+    this.employee.splice(index,1);
   }
 
 }

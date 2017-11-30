@@ -1,2 +1,21 @@
 
-  <h1>vertical1 works!</h1>
+<div class="container">
+  <div class="row">
+  <table>
+    <tr>
+      <td><b>FirstName</b></td>
+      <td><b>LastName</b></td>
+      <td><b>EmployeeId</b></td>
+      <td><b>SSN</b></td>
+      <td><b>Delete</b></td>
+    </tr>
+    <tr *ngFor="let emp of employee, let i=index ">
+      <td>{{emp.FirstName}}</td>
+      <td>{{emp.LastName}}</td>
+      <td>{{emp.EmployeeId}}</td>
+      <td>{{emp.SSN}}</td>
+      <td><button class="btn btn-primary" (click)="deleteUser(i)">Delete</button></td>
+    </tr>
+  </table>
+</div>
+</div>
