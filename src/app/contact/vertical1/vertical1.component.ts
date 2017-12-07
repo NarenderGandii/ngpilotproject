@@ -7,7 +7,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class Vertical1Component implements OnInit {
-
+private total:number;
 private employee=[
   {
 "FirstName":"Narender",
@@ -23,13 +23,23 @@ private employee=[
   }
 ]
 
-  constructor() { }
+  constructor() { 
+    this.total= this.calculateTotal(this.employee,"SSN");
+  }
 
+  calculateTotal(obj,propertyname){
+    return obj.reduce(function(a,b){
+        return (+a) + (+b[propertyname]);
+    },0)
+  }
   ngOnInit() {
   }
 
   deleteUser(index){
-    this.employee.splice(index,1);
+    if(confirm("Are you sure you want to delete the user?"))
+    {
+      this.employee.splice(index,1);
+    }
   }
 
 }
