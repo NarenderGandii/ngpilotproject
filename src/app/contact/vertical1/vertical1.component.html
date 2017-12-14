@@ -1,25 +1,45 @@
 
 <div class="container">
   <div class="row">
+    <form #formVertical1="ngForm" (ngSubmit)="onSubmit(formVertical1.value)">
   <table>
     <tr>
       <td><b>FirstName</b></td>
       <td><b>LastName</b></td>
       <td><b>EmployeeId</b></td>
       <td><b>SSN</b></td>
+      <td>DDL</td>
       <td><b>Delete</b></td>
     </tr>
-    <tr *ngFor="let emp of employee, let i=index ">
-      <td>{{emp.FirstName}}</td>
-      <td>{{emp.LastName}}</td>
-      <td>{{emp.EmployeeId}}</td>
-      <td>{{emp.SSN}}</td>
+    <tr *ngFor="let emp of employee; let index = index">
+      <td>
+        <input  type="text"  [(ngModel)]="emp.FirstName" name="firstname" [ngModelOptions]="{standalone:true}" value="{{emp.FirstName}}"/>
+      </td>
+      <td>
+        <input  type="text"  [(ngModel)]="emp.LastName" name="lastName" [ngModelOptions]="{standalone:true}"  value="{{emp.LastName}}"/>
+      </td>
+      <td>
+        <input  type="text"  [(ngModel)]="emp.EmployeeId" name="employeeId" [ngModelOptions]="{standalone:true}" value="{{emp.EmployeeId}}"/>
+      </td>
+      <td>
+        <input  type="text"  [(ngModel)]="emp.SSN" name="ssn" [ngModelOptions]="{standalone:true}" value="{{emp.SSN}}"/>
+      </td>
+      <td>
+        <select [(ngModel)]="emp.TrasData" name="ddltransactions" [ngModelOptions]="{standalone:true}">
+          <option [value]="trx" *ngFor="let trx of ddlTransactions" >{{trx}}</option>
+        </select></td>
       <td><button class="btn btn-primary" (click)="deleteUser(i)">Delete</button></td>
-    </tr><tr>
+    
+    </tr>
+    <tr>
       <td colspan="4">
 Total: {{total}}
+
+<button type="submit"  value="Button">Submit</button>
       </td>
     </tr>
+   
   </table>
+</form>
 </div>
 </div>
