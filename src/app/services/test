@@ -1,1 +1,58 @@
 
+/// <reference path="customer-search.model.ts" />
+import { Injectable, Inject } from "@angular/core";
+import { Http, Response } from '@angular/http';
+import { Observable } from 'rxjs/Rx';
+import 'rxjs/Rx';
+import { HttpModule, JsonpModule, Headers, RequestOptions } from '@angular/http';
+import { CustomerSearch, Customer,SalesInvoiceModel } from './customer-search.model';
+import { AuthHttp } from "angular2-jwt";
+import {SlimLoadingBarService} from 'ng2-slim-loading-bar';
+
+@Injectable()
+
+export class CustomerSearchService {
+
+    endpoint_search: string = "http://controller-dev.polarisportal.com/api/customer";
+    //endpoint_search: string = "http://localhost:63500/api/customer/";
+    endpoint_getSalesInvoiceByContactId: string = "http://controller-dev.polarisportal.com/api/salesInvoice/";
+    //endpoint_getSalesInvoiceByContactId: string = "http://localhost:63500/api/salesInvoice/";
+
+    constructor(private authHttp: AuthHttp,private slimLoadingBarService: SlimLoadingBarService) {}
+
+    getContactSearch(body: CustomerSearch): Observable<Customer[]> {
+        this.slimLoadingBarService.start();
+        let bodyString = JSON.stringify(body);//"{'firstName':'hello','lastName':'world','city':'plymouth','state':'mn','zip':'55442'}";
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        return this.authHttp.post(this.endpoint_search, bodyString, options)
+                    .map((res: Response) => 
+                    {
+                        this.slimLoadingBarService.complete();  
+                        return res.json(); 
+                    })
+                    .catch((error:any) => 
+                    { 
+                            this.slimLoadingBarService.complete();  
+                            console.log(error.json().error);
+                            return Observable.throw(error.json().error || 'Server error') 
+                    });
+    }
+
+    getSalesInvoiceByContactId(ContactId: string): Observable<Array<SalesInvoiceModel>> {
+        this.slimLoadingBarService.start();
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        return this.authHttp.get(this.endpoint_getSalesInvoiceByContactId + ContactId, options ).map((res: Response) => 
+                    { 
+                        this.slimLoadingBarService.complete();  
+                        return res.json() 
+                    })
+                    .catch((error:any) => 
+                    { 
+                            this.slimLoadingBarService.complete();  
+                            console.log(error.json().error);
+                            return Observable.throw(error.json().error || 'Server error') 
+                    });
+    }
+}
